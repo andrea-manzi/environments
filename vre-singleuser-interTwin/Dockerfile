@@ -10,11 +10,11 @@ RUN pip install --upgrade pip
 USER $NB_UID
 
 RUN conda install -y -n base mamba \
-    && mamba install -y -c conda-forge python-gfal2 asyncssh jupyterhub==1.5.0 \
+    && mamba install -y -c conda-forge python-gfal2 asyncssh jupyterhub \
     && conda clean --all -f -y
 
-# Install rucio-jupyterlab with jlab v=3
-RUN pip install rucio-jupyterlab==0.10.0 \
+# Install rucio-jupyterlab with jlab v=4
+RUN pip install rucio-jupyterlab \
     && jupyter serverextension enable --py rucio_jupyterlab --sys-prefix 
     
 USER root
